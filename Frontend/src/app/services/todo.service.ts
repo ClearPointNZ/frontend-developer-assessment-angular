@@ -7,7 +7,8 @@ import { BaseTodoItem, TodoItem } from '@models/index';
   providedIn: 'root'
 })
 export class TodoService {
-  private apiUrl: string;
+  apiUrl: string;
+
   private environment = 'http://localhost:7002';
 
   constructor(private http: HttpClient) {
