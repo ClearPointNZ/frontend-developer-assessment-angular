@@ -1,0 +1,31 @@
+.todo {
+  &__description {
+    font-size: 20px;
+
+    .completed & {
+      text-decoration: line-through 3px;
+    }
+  }
+
+  &__check {
+    width: 1.5em;
+    height: 1.5em;
+    
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.dropdown {
+  &-menu {
+    width: 90px;
+    min-width: 90px;
+  }
+
+  &-toggle {
+    &::after {
+      display: none;
+    }
+  }
+}

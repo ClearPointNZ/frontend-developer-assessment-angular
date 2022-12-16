@@ -1,0 +1,19 @@
+<div class="todo d-flex px-3 py-2" [ngClass]="{'completed': isCompleted, 'existed bg-warning bg-gradient': isExisting}">
+  <div class="form-check d-flex align-items-center flex-fill m-0 p-0">
+    <input class="todo__check form-check-input ms-0 me-3" type="checkbox"
+      [checked]="isCompleted"
+      (change)="toggleCompleted()">
+    <label class="todo__description form-check-label">{{description}}</label>
+  </div>
+  <div class="todo__action">
+    <div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-primary d-flex align-items-center" id="dropdownBasic1" ngbDropdownToggle>
+				<span class="material-icons-outlined">menu</span>
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+				<button ngbDropdownItem>Edit</button>
+				<button ngbDropdownItem>Delete</button>
+			</div>
+		</div>
+  </div>
+</div>
