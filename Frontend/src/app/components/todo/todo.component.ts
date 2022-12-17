@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
 
   private readonly unsubscribe$ = new Subject<void>();
 
-  constructor(private todoService: TodoService) { }
+  constructor(public todoService: TodoService) { }
 
   get description() {
     return this.todo.description;

@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "@components/*": ["src/app/components/*"],
+      "@constants/*": ["src/app/constants/*"],
       "@enums/*": ["src/app/enums/*"],
       "@interceptors/*": ["src/app/interceptors/*"],
       "@models/*": ["src/app/models/*"],

@@ -21,7 +21,6 @@
   </div>
   <div class="row">
     <div class="col">
-      <!-- <h1>Add Item</h1> -->
       <form class="d-flex" #todoForm="ngForm" (submit)="createTodoItem()">
         <div class="input-group mb-3">
           <button type="button" class="btn btn-outline-secondary d-flex align-items-center" [disabled]="todoForm.invalid"
@@ -42,6 +41,12 @@
   </div>
   <div class="row mb-3">
     <div class="col">
+      <h4 *ngIf="totalOfItems" class="total-item d-flex align-items-center justify-content-center">Showing {{totalOfItems}} Item(s) 
+        <button type="button" class="pull-right btn btn-primary d-flex align-items-center ms-2"
+          (click)="getTodoItems()">
+          <span class="material-icons-outlined">sync</span>
+        </button>
+      </h4>
       <table class="todo-table table table-bordered mb-0">
         <thead>
           <tr>
@@ -56,18 +61,7 @@
           <app-todo [todo]="item" [todoInput]="todoInput"></app-todo>
         </li>
       </ul>      
-      <!-- <div class="card">
-        <h1 class="card-header d-flex align-items-center justify-content-center">Showing {{totalOfItems}} Item(s) 
-          <button type="button" class="pull-right btn btn-primary d-flex align-items-center ms-2"
-            (click)="getTodoItems()">
-            <span class="material-icons-outlined">sync</span>
-          </button>
-        </h1>
-        <div class="card-body">
-
-        </div>
-      </div> -->
-      <h5 *ngIf="!totalOfItems" class="my-3">You got an empty list. Let's add some To-Dos.</h5>
+      <h5 *ngIf="!totalOfItems" class="empty-list my-3">You got an empty list. Let's add some To-Dos.</h5>
     </div>
   </div>
 </div>

@@ -59,12 +59,4 @@ export class AppComponent {
         this.todoItems = data.reverse();
       })
   }
-
-  updateTodoItem(item: TodoItem) {
-    this.todoService.updateTodoItem(item)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((data: TodoItem) => {
-        this.todoItems.push(data);
-      })
-  }
 }

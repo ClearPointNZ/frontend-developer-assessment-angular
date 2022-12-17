@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TOAST_DELAY } from '@constants/index';
 import { LogType } from '@enums/index';
 import { Toast } from '@models/index';
 import { ToastService } from '@services/index';
-
-const DELAY = 5000;
 
 @Component({
   selector: 'app-toast',
@@ -48,7 +47,7 @@ export class ToastComponent implements OnInit {
     return className;
   }
 
-  getDelay = (toast: Toast) => toast.delay || DELAY;
+  getDelay = (toast: Toast) => toast.delay || TOAST_DELAY;
 
   getBody = (toast: Toast) => toast.body;
 
