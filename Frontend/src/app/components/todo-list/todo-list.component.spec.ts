@@ -18,6 +18,7 @@ describe('TodoListComponent', () => {
   let component: TodoListComponent;
   let fixture: ComponentFixture<TodoListComponent>;
 
+  let deleteTodo$: Observable<void>;
   let getTodoList$: Observable<TodoModel[]>;
   let updateTodo$: Observable<TodoModel>;
 
@@ -29,7 +30,8 @@ describe('TodoListComponent', () => {
         {
           provide: TodoService,
           useValue: {
-            getToDoList: (): Observable<TodoModel[]> => getTodoList$,
+            deleteTodo: (): Observable<void> => deleteTodo$,
+            getTodoList: (): Observable<TodoModel[]> => getTodoList$,
             updateTodo: (): Observable<TodoModel> => updateTodo$,
           },
         },
@@ -39,12 +41,13 @@ describe('TodoListComponent', () => {
     fixture = TestBed.createComponent(TodoListComponent);
     component = fixture.componentInstance;
 
+    deleteTodo$ = of();
     getTodoList$ = of(mockList);
     fixture.detectChanges();
   });
 
   it('should get todo list', () => {
-    expect(component.todoList.length === 3).toBeTrue();
+    expect(component.todoList.length).toBe(3);
   });
 
   it('the todo list should be in alphabetical order', () => {
@@ -54,13 +57,13 @@ describe('TodoListComponent', () => {
   });
 
   it('should add new todo to the list', () => {
-    expect(component.todoList.length === 3).toBeTrue();
+    expect(component.todoList.length).toBe(3);
 
     getTodoList$ = of([...mockList, mockNewTodo]);
 
     component.todoAdded();
 
-    expect(component.todoList.length === 4).toBeTrue();
+    expect(component.todoList.length).toBe(4);
   });
 
   it('the todo list should be in alphabetical order after adding a new todo', () => {

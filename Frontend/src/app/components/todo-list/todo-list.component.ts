@@ -17,6 +17,10 @@ export class TodoListComponent implements OnInit {
     this.refreshList();
   }
 
+  public onDelete(id: string): void {
+    this.todoService.deleteTodo(id).subscribe(() => this.refreshList());
+  }
+
   public onMarkComplete(todo: TodoModel): void {
     todo.isCompleted = true;
 
@@ -29,7 +33,7 @@ export class TodoListComponent implements OnInit {
 
   private refreshList(): void {
     this.todoService
-      .getToDoList()
+      .getTodoList()
       .pipe(map((list) => list.sort(this.sortByDescription)))
       .subscribe((result) => (this.todoList = result));
   }

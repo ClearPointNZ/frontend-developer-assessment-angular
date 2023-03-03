@@ -31,7 +31,7 @@ describe('TodoService', () => {
       { id: '6gkQahV46K', description: 'Three' },
     ];
 
-    service.getToDoList().subscribe((result) =>
+    service.getTodoList().subscribe((result) =>
       expect(result)
         .withContext('todoList does not match expected ' + result.length)
         .toEqual(mockResponse, 'should return expected results')
@@ -52,7 +52,7 @@ describe('TodoService', () => {
 
     service.createTodo(command).subscribe((result) =>
       expect(result)
-        .withContext('todoList does not match expected ' + result)
+        .withContext('create todo does not match expected ' + result)
         .toEqual(mock, 'should return expected results')
     );
 
@@ -74,7 +74,7 @@ describe('TodoService', () => {
 
     service.updateTodo(mock).subscribe((result) =>
       expect(result)
-        .withContext('todoList does not match expected ' + result)
+        .withContext('update todo does not match expected ' + result)
         .toEqual(mock, 'should return expected results')
     );
 
@@ -85,5 +85,23 @@ describe('TodoService', () => {
     expect(request.request.method).toEqual('PUT');
 
     request.flush(mock);
+  });
+
+  it('can delete todo', () => {
+    const id = 'o1hj3b2hHw';
+
+    service.deleteTodo(id).subscribe((result) =>
+      expect(result)
+        .withContext('delete does not match expected ' + result)
+        .toBeNull('should return null')
+    );
+
+    const request = httpTestingController.expectOne(
+      `${environment.servicesApiUrl}/todoItems/${id}`
+    );
+
+    expect(request.request.method).toEqual('DELETE');
+
+    request.flush(null);
   });
 });

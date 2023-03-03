@@ -17,7 +17,11 @@ export class TodoService {
     return this.httpClient.post<TodoModel>(this.API_URL, command);
   }
 
-  public getToDoList(): Observable<TodoModel[]> {
+  public deleteTodo(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.API_URL}/${id}`);
+  }
+
+  public getTodoList(): Observable<TodoModel[]> {
     return this.httpClient.get<TodoModel[]>(this.API_URL);
   }
 
