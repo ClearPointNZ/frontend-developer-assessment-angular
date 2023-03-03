@@ -1,22 +1,25 @@
-# ClearPoint Frontend Developer Assessment Angular
+# Luke Foster - Todo List app
 
-This repository contains code used in the interview process for developers joining the Front-end Practice at ClearPoint.
+---
 
-There are two parts to this solution and depending on the type of role you are applying for you will be asked to contribute to one or both areas.
-The application is a simple to-do list that allows a user to create items in a list and mark them as complete.
-It is an Angular-based front end application that uses a NodeJS API at the backend to facilitate using and persisting items in this to-do list.
-<br/><br/>
+The readme and the first page of the app show different instructions, so I've completed the instructions in both.
 
-For this exercise you are asked to complete the requirements to enhance the UI functionality in the **Frontend** folder.
-The front end functionality requires the following to be added:
+##### What I've done:
 
-1. The ability to surface any errors from the backend API in the UI
-2. The ability to mark an item in the to-do list as complete
-3. Add unit tests to cover the new functionality using a framework of your choice
+1. Can add todos
+2. Can delete todos
+3. Can mark todos complete
+4. Handle http errors
+5. Added Toastr for displaying errors
+6. Add validation for disallowed words list
+7. Display all todos listed alphabetically
+8. Add unit test
+9. Improved layout and styling
 
-<br/>
-Remember that *maintainability and clarity* is key in your solution. 
-You are welcome to use comments in the code to outline any assumptions you might make and/or outline your thinking at various points.
-Once completed you can either push the completed solution to your own repo and send us the link.
-<br/><br/>
-We look forward to seeing your submission and have fun!
+##### Things I'd have done differently in a larger or real world production app:
+
+- Broken up into modules for better organisation and the ability to lazy load. This would include a Core module for shared code, and a Todo module for that specific functionality
+- The todo list would be paginated
+- I considered inserting new todos into the list instead of refreshing the list, but in this case the performance didn't warrant the complexity
+- Add end to end tests
+- Considered responsive styling
