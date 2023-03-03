@@ -1,9 +1,7 @@
 <ng-container *ngIf="todoList?.length; else empty">
   <div class="d-flex justify-content-between">
     <h3 class="text-muted">
-      {{ incompleteItemsCount }} item{{
-        incompleteItemsCount === 1 ? "" : "s"
-      }}
+      {{ incompleteItemsCount }} item{{ incompleteItemsCount === 1 ? "" : "s" }}
       todo
     </h3>
     <h3 class="text-muted">
@@ -15,11 +13,10 @@
   <div class="card mb-3" *ngFor="let todo of todoList">
     <div class="p-3 gap-3 d-flex justify-content-between align-items-end">
       <div class="d-flex flex-column">
-        <div
-          *ngIf="todo.isCompleted"
-          class="badge rounded-pill text-bg-success mb-2"
-        >
-          Completed
+        <div *ngIf="todo.isCompleted">
+          <span class="badge rounded-pill text-bg-success mb-2">
+            Completed
+          </span>
         </div>
         <h4>
           {{ todo.description }}
