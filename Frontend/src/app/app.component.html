@@ -1,59 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <img
-        src="/assets/images/clearpoint-logo.png"
-        alt="ClearPoint"
-        class="img-fluid rounded"
-      />
+      <h1 class="mt-4">Todo List</h1>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <div role="alert" class="fade alert alert-success show">
-        <div class="alert-heading h4">Todo List App (Angular)</div>
-        Welcome to the ClearPoint frontend technical test. We like to keep
-        things simple, yet clean so your task(s) are as follows:<br /><br />
 
-        <ol class="list-left text-left">
-          <li>
-            Add the ability to add and delete a Todo Item by calling the backend
-            API
-          </li>
-          <li>
-            Add form validation to the description as to disallow entries that
-            contain any of these words: cat, dog, yes, no and display an error
-            message below the form field
-          </li>
-          <li>
-            Display all the current Todo Items in the below grid and display
-            them in alphabetical order
-          </li>
-          <li>
-            Bonus points adding a 'Mark as completed' button code for allowing
-            users to update and mark a specific Todo Item as completed and for
-            displaying any relevant validation errors/ messages from the API in
-            the UI
-          </li>
-          <li>
-            Add unit tests and refactor the component(s) as best you see fit
-          </li>
-          <li>
-            Feel free to add comments if you feel like you might do things
-            differently if this was a real world app or had more time
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <div class="col">
       <app-create-todo (itemAdded)="itemAdded()"></app-create-todo>
     </div>
-    <div class="row">
-      <div class="col">
-        <app-todo-list></app-todo-list>
-      </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <app-todo-list></app-todo-list>
     </div>
   </div>
 </div>

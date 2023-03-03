@@ -11,6 +11,14 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoListComponent implements OnInit {
   public todoList: TodoModel[] = [];
 
+  public get completeItemsCount(): number {
+    return this.todoList?.filter((t) => t.isCompleted)?.length || 0;
+  }
+
+  public get incompleteItemsCount(): number {
+    return this.todoList?.length - this.completeItemsCount || 0;
+  }
+
   public constructor(private todoService: TodoService) {}
 
   public ngOnInit(): void {
